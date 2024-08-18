@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domino's vs Pizza Hut: The Geospatial Pizza War in Bangalore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background-color: #fafafa;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.7;
+        }
+        h1, h2, h3 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        h1 {
+            color: #000;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #000;
+            font-size: 1.8em;
+        }
+        .section {
+            margin-bottom: 50px;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .dominos {
+            color: #007bff; /* Blue for Domino's */
+        }
+        .pizzahut {
+            color: #dc3545; /* Red for Pizza Hut */
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 0 20px;
+        }
+        .image {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .video {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .video iframe {
+            width: 100%;
+            height: 500px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .summary {
+            font-size: 1.3em;
+            color: #555;
+        }
+        .humor {
+            font-size: 1.2em;
+            color: #555;
+            font-style: italic;
+        }
+        .highlight {
+            font-weight: 600;
+            color: #007bff; /* Domino's */
+        }
+        .highlight.red {
+            color: #dc3545; /* Pizza Hut */
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            margin-top: 60px;
+            border-radius: 10px;
+        }
+        .image-container {
+        display: flex;
+        justify-content: center;
+        }
+
+        .map-image {
+            width: 48%; /* Adjust width as needed */
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .video-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        video {
+            width: 80%; /* Adjust width as needed */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .video-title {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Domino's vs Pizza Hut: The Geospatial Pizza War in Bangalore</h1>
+        <div style="text-align: right; font-size: 1em; color: #555; margin-bottom: 20px;">
+            <em>10-Minute Read</em>
+        </div>
+        <div class="section">
+            <h2>Pizza: A Global Phenomenon</h2>
+            <p>Originating from Italy, pizza has become a global favorite with a market valued at over <strong>$145 billion</strong>. Major players in this booming industry are <span class="highlight">Domino's</span> and <span class="highlight red">Pizza Hut</span>.</p>
+            <p><span class="highlight">Domino's</span> operates in over <strong>90 countries</strong> with <strong>17,000 stores</strong>, while <span class="highlight red">Pizza Hut</span> has over <strong>18,000 restaurants</strong> across <strong>100 countries</strong>. Both brands have a significant presence in Bangalore, making the pizza scene here particularly competitive.</p>
+        </div>
+        
+
+        <div class="section">
+            <h2>The Battle of the Giants</h2>
+            <p>Welcome to the ultimate showdown between <span class="highlight">Domino's</span> and <span class="highlight red">Pizza Hut</span> in the tech city of Bangalore. With a total of <strong>87 Domino's</strong> stores and <strong>81 Pizza Hut</strong> outlets serving a bustling population of <strong>8,443,422</strong> (as per the 2011 census), the competition is fierce. Ever wondered who's winning the pizza war? Well, buckle up, because I’ve crunched the numbers, mapped the locations, and found out where these pizza titans should really be throwing dough!</p>
+        </div>
+        
+
+        <div class="section">
+            <h2>Data Collection</h2>
+            <p>To gather the necessary data for this analysis, I employed a combination of web scraping, geocoding, and publicly available data. For <span class="highlight">Domino's</span>, I scraped their store locator to retrieve the addresses of all 87 stores in Bangalore. After collecting the addresses, I used the Google Geocoder to obtain the precise latitude and longitude for each location.</p>
+            <p>For <span class="highlight red">Pizza Hut</span>, the process was a bit simpler. I accessed their website, which conveniently provided the latitude and longitude for each of the 81 stores directly. This streamlined the data collection process and ensured accuracy in the geographical mapping.</p>
+            <p>The population data, including ward-wise details, was sourced from government data websites. This data was readily available and provided critical insights into the distribution of the population across different wards in Bangalore.</p>
+        </div>
+
+        <div class="section">
+            <div class="image-container">
+                <img src="image.png" alt="Domino's vs Pizza Hut Store Locations Map" class="map-image"> 
+                <img src="image copy.png" alt="Ward-Wise Population Distribution Map" class="map-image">
+            </div>
+        </div>
+        <div class="section">
+            <h2>Voronoi Polygons: Defining Service Areas</h2>
+            <p>To understand how each <span class="highlight">Domino's</span> and <span class="highlight red">Pizza Hut</span> store serves its surrounding area, I utilized <strong>Voronoi polygons</strong>. This method divides the map into regions, with each region assigned to the closest store. The result? A clear visual representation of the geographical reach of each outlet, ensuring that every store's service area is well-defined and optimized for delivery.</p>
+            <div class="image-container">
+                <img src="image copy 2.png" alt="Coverage Area for Each Store" class="map-image">
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Estimating Population Served</h2>
+            <p>To calculate the population served by each store, I assumed that the population was uniformly distributed across each ward. By combining this assumption with the Voronoi polygons, I was able to estimate how many people each <span class="highlight">Domino's</span> and <span class="highlight red">Pizza Hut</span> outlet serves. This method provided a practical approach to understanding the market reach of each store within Bangalore.</p>
+            <p class="image-title">Population Heatmap</p>
+            <div class="image-container">
+                <img src="image copy 3.png" alt="Population Heatmap" class="map-image">
+                
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Estimating Store Reach</h2>
+            <p>By combining the service areas defined by Voronoi polygons with population density data, I estimated how many people each <span class="highlight">Domino's</span> and <span class="highlight red">Pizza Hut</span> store serves in its respective area. This comprehensive analysis provided insights into the market reach and potential gaps in service coverage.</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/t5-Z7cJY7qA?si=tNeFZC0HZR_Rr6Ad" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                <p class="video-title">Estimated Store Reach Video</p>
+            </div>
+        </div>
+
+
+        <div class="section">
+            <h2>Analysis</h2>
+            <div class="subsection">
+                <h3>General Analysis</h3>
+                <p>The detailed geospatial analysis provides a comprehensive view of the competitive landscape between <span class="highlight">Domino's</span> and <span class="highlight red">Pizza Hut</span> in Bangalore.</p>
+                <p>As seen from the maps , the heartland of banglore or the middle part of the city is captured mainly by domino's whereas the outer or boundary of the city is covered more by pizza hut</p>
+            </div>
+            <div class="subsection">
+                <h3>Domino's: Weak Zones and areas for improvment</h3>
+                <p><span class="highlight">Domino's</span> is performing well in the central parts of Bangalore, where a high concentration of stores caters to a substantial customer base. However, there are opportunities for growth in the west part of the city, which has a higher population density but fewer stores. Additionally, expanding to the outskirts and boundary areas of Bangalore could help Domino's tap into new customer segments and further increase business reach.</p>
+                <div class="image-container">
+                    <img src="image copy 4.png" alt="Domino's Weak Zones" class="map-image">
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Pizza Hut: Weak Zones and areas for improvement</h3>
+                <p><span class="highlight red">Pizza Hut</span> performs well in the western parts of Bangalore and on the city's boundaries. However, the brand needs to focus on improving store quality in the eastern regions and consider closing some redundant stores that serve very low populations. This could reduce operational costs and reallocate resources more effectively. Additionally, opening a few large stores in the central part of the city could boost market presence and customer reach.</p>
+                <div class="image-container">
+                    <img src="image copy 5.png" alt="Pizza Hut Weak Zones" class="map-image">
+        
+                </div>
+            </div>
+
+            
+            
+        </div>
+        
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>The analysis reveals critical insights into the market dynamics of <span class="highlight">Domino's</span> and <span class="highlight red">Pizza Hut</span> in Bangalore. While both brands have established strong presences, there are clear opportunities for improvement. Domino's can enhance its market coverage by expanding into high-density and boundary areas, while Pizza Hut should focus on optimizing store quality and strategically positioning new stores in central locations. Addressing these areas can lead to increased customer reach and operational efficiency for both brands.</p>
+        </div>
+        <div class="section">
+            <h2>Further Details</h2>
+            <p>Colab notebook used for this project here: <a href="https://colab.research.google.com/drive/1lpeM1QycTgel4qBx9fE_KCehCstUoWK-?usp=sharing" target="_blank">Colab Notebook</a>.</p>
+        </div>
+        
+
+
+    </div>
+</body>
