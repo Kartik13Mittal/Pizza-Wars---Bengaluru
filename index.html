@@ -91,15 +91,33 @@
             border-radius: 10px;
         }
         .image-container {
-        display: flex;
-        justify-content: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+        }
+
+        .map-item {
+            text-align: center;
+            max-width: 45%; /* Adjust this as needed */
         }
 
         .map-image {
-            width: 48%; /* Adjust width as needed */
-            height: auto;
-            border: 1px solid #ddd;
+            width: 100%; /* Ensure the image takes up the full container width */
+            height: auto; /* Maintain aspect ratio */
+            box-shadow: 5px 5px 10px  rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+        }
+        .map-image-2 {
+            width: 50%; /* Ensure the image takes up the full container width */
+            height: auto; /* Maintain aspect ratio */
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .image-caption {
+            font-style: italic;
+            margin-top: 5px;
+            font-size: 14px;
         }
 
         .video-container {
@@ -117,6 +135,16 @@
             font-size: 14px;
             color: #555;
             margin-top: 5px;
+        }
+        .blue-dot {
+            color: blue;
+            font-size: 16px; /* Adjust the size as needed */
+            vertical-align: middle; /* Align the dot vertically if necessary */
+        }
+        .red-dot {
+            color: red;
+            font-size: 16px; /* Adjust the size as needed */
+            vertical-align: middle; /* Align the dot vertically if necessary */
         }
 
         
@@ -139,7 +167,9 @@
 
         <div class="section">
             <h2>The Battle of the Giants</h2>
-            <p>Welcome to the ultimate showdown between <span class="highlight">Domino's</span> and <span class="highlight red">Pizza Hut</span> in the tech city of Bangalore. With a total of <strong>87 Domino's</strong> stores and <strong>81 Pizza Hut</strong> outlets serving a bustling population of <strong>8,443,422</strong> (as per the 2011 census), the competition is fierce. Ever wondered who's winning the pizza war? Well, buckle up, because I’ve crunched the numbers, mapped the locations, and found out where these pizza titans should really be throwing dough!</p>
+             <p>Get ready for a slice of the action in Bangalore, where <span style="color: blue;">Domino's</span> and <span style="color: red;">Pizza Hut</span> are locked in a heated battle 
+                for pizza supremacy. With <strong>87 Domino's </strong> stores and <strong>81 Pizza Hut</strong> outlets catering to a vibrant population of <strong>8,443,422</strong>  (based on the 2011 census), the rivalry is intense. But who's really
+                coming out on top? I’ve dug into the data, mapped out the store locations, and analyzed where these pizza giants should expand next. While the population figures are from 2011, I’ve have considered consistent population growth would occur,so only the numbers will increase but the percentages would remain same,the overall analysis will be done on 2011 census data only.</p>
         </div>
         
 
@@ -150,12 +180,20 @@
             <p>The population data, including ward-wise details, was sourced from government data websites. This data was readily available and provided critical insights into the distribution of the population across different wards in Bangalore.</p>
         </div>
 
-        <div class="section">
+         <div class="section">
             <div class="image-container">
-                <img src="image.png" alt="Domino's vs Pizza Hut Store Locations Map" class="map-image"> 
-                <img src="image copy.png" alt="Ward-Wise Population Distribution Map" class="map-image">
+                <div class="map-item">
+                    <img src="image.png" alt="Domino's vs Pizza Hut Store Locations Map" class="map-image">
+                    <p class="image-caption">Stores <span class="blue-dot">•</span> Dominos <span class="red-dot">•</span> Pizza hut </p>
+                </div>
+                <div class="map-item">
+                    <img src="image copy.png" alt="Ward-Wise Population Distribution Map" class="map-image">
+                    <p class="image-caption">Bengaluru Wards</p>
+                </div>
             </div>
+            
         </div>
+        
         <div class="section">
             <h2>Voronoi Polygons: Defining Service Areas</h2>
             <p>To understand how each <span class="highlight">Domino's</span> and <span class="highlight red">Pizza Hut</span> store serves its surrounding area, I utilized <strong>Voronoi polygons</strong>. This method divides the map into regions, with each region assigned to the closest store. The result? A clear visual representation of the geographical reach of each outlet, ensuring that every store's service area is well-defined and optimized for delivery.</p>
